@@ -27,19 +27,28 @@
             border-right:1px solid #333;
             border-bottom:1px solid #333;
         }
-
         .castle{
             width:60px;
             height:60px;
             background:orange;
             border-radius:6px;
             position:absolute;
-            font-size: 10px;
             display:flex;
+            flex-direction:column;
             align-items:center;
             justify-content:center;
+            text-align:center;
         }
-
+        .castle-name{
+            font-size:11px;
+            line-height:10px;
+        }
+        .castle-power{
+            font-size:14px;
+            font-weight:bold;
+            color:#111;
+            margin-top: 6px;
+        }
         .trap{
             width:120px;
             height:120px;
@@ -137,17 +146,21 @@ importLayout(document.getElementById('importFile').files[0])
     trap2.style.top = startTile * grid + "px"
 
 
-    function createCastle(x=0,y=0,name=""){
+    function createCastle(x=0,y=0,name="",power="0M"){
 
         let c=document.createElement("div")
-
+        c.dataset.power = power
         c.className="castle"
 
         if(!name){
             name="Castle "+id
         }
 
-        c.innerText=name
+        c.innerHTML = `
+        <div class="castle-name">${name}</div>
+        <div class="castle-power">${power}</div>
+        `
+
         c.dataset.name=name
         c.dataset.id=id
 
@@ -168,10 +181,12 @@ importLayout(document.getElementById('importFile').files[0])
     function addCastle(){
 
         let name=prompt("Naam van het kasteel / speler")
-
         if(!name) return
 
-        createCastle(100,100,name)
+        let power=prompt("Power (bv 10M of 25M)")
+        if(!power) power="0M"
+
+        createCastle(100,100,name,power)
 
     }
 
@@ -193,9 +208,26 @@ importLayout(document.getElementById('importFile').files[0])
             e.preventDefault()
 
             if(el.classList.contains("castle") || el.classList.contains("banner")){
-                if(confirm("Kasteel verwijderen?")){
-                    el.remove()
+                let type = el.classList.contains("banner") ? "Banner" : "Kasteel"
+
+                if(confirm(type+" verwijderen?")){
                 }
+            }
+
+        })
+
+        el.addEventListener("dblclick",(e)=>{
+
+            if(!el.classList.contains("castle")) return
+
+            let power=prompt("Nieuwe power",el.dataset.power)
+
+            if(power){
+                el.dataset.power=power
+                el.innerHTML = `
+                <div class="castle-name">${el.dataset.name}</div>
+                <div class="castle-power">${power}</div>
+                `
             }
 
         })
@@ -265,6 +297,7 @@ importLayout(document.getElementById('importFile').files[0])
                     c.classList.contains("banner") ? "banner" :
                         "castle",
                 name: c.dataset.name || "",
+                power: c.dataset.power || "",
                 x:tileX,
                 y:tileY
             })
@@ -291,7 +324,7 @@ importLayout(document.getElementById('importFile').files[0])
         layout.forEach(c=>{
 
             if(c.type==="castle"){
-                createCastle(c.x*grid,c.y*grid,c.name)
+                createCastle(c.x*grid,c.y*grid,c.name,c.power)
             }
 
             if(c.type==="banner"){
@@ -338,7 +371,8 @@ importLayout(document.getElementById('importFile').files[0])
                 type: c.classList.contains("trap") ? "trap" :
                     c.classList.contains("banner") ? "banner" :
                         "castle",
-                name:c.dataset.name || "",
+                name: c.dataset.name || "",
+                power: c.dataset.power || "",
                 x:tileX,
                 y:tileY
             })
@@ -370,7 +404,7 @@ importLayout(document.getElementById('importFile').files[0])
             layout.forEach(c=>{
 
                 if(c.type==="castle"){
-                    createCastle(c.x*grid,c.y*grid,c.name)
+                    createCastle(c.x*grid,c.y*grid,c.name,c.power)
                 }
 
                 if(c.type==="banner"){
