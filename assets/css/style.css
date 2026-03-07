@@ -1,0 +1,191 @@
+body{
+    background:#1b1b1b;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+}
+
+#map{
+    width:1600px;
+    height:1000px;
+    margin:auto;
+    position:relative;
+
+    background:
+            linear-gradient(#333 1px, transparent 1px),
+            linear-gradient(90deg,#333 1px, transparent 1px);
+
+    background-size:40px 40px;
+    border-right:1px solid #333;
+    border-bottom:1px solid #333;
+}
+
+.castle{
+    width:60px;
+    height:60px;
+    background:orange;
+    border-radius:6px;
+    position:absolute;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    z-index:3;
+}
+
+.castle-name{
+    font-size:11px;
+    line-height:10px;
+}
+
+.castle-power{
+    font-size:14px;
+    font-weight:bold;
+    color:#111;
+    margin-top:6px;
+}
+
+.trap{
+    width:112px;
+    height:112px;
+    background:red;
+    border-radius:10px;
+    position:absolute;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:4;
+}
+
+.banner{
+    width:26px;
+    height:26px;
+    background: #f8364a;
+    border:2px solid black;
+    border-radius:50%;
+    box-sizing:border-box;
+    position:absolute;
+    cursor:grab;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:10px;
+    z-index:2;
+    user-select:none;
+}
+
+.castle,.trap{
+    cursor:grab;
+    user-select:none;
+}
+
+.castle:active,
+.trap:active{
+    cursor:grabbing;
+}
+
+.dragging{
+    opacity:0.7;
+}
+
+.toolbar{
+    margin:20px auto;
+    width:1600px;
+    display:flex;
+    gap:10px;
+    align-items:center;
+    justify-content:center;
+}
+
+.toolbar button,
+.toolbar input[type="file"]{
+    height:36px;
+    display:flex;
+    align-items:center;
+}
+
+button{
+    background:#2c2c2c;
+    color:white;
+    border:1px solid #444;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+button:hover{
+    background:#2e7d32;
+    border-color:#4caf50;
+}
+
+input[type="file"]::file-selector-button{
+    background:#2c2c2c;
+    color:white;
+    border:1px solid #444;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-right:8px;
+}
+
+input[type="file"]::file-selector-button:hover{
+    background:#3a3a3a;
+}
+
+input[type="file"]:hover::file-selector-button{
+    background:#2e7d32;
+    border-color:#4caf50;
+}
+
+.zoom-btn{
+    background:#444;
+    color:white;
+    border:1px solid #666;
+    padding:4px 8px;
+    cursor:pointer;
+}
+
+.zoom-btn.active{
+    background:#2e7d32;
+    border-color:#4caf50;
+}
+
+.drag-preview{
+    outline:2px dashed rgba(255,200,0,0.6);
+}
+
+dialog{
+    border:none;
+    border-radius:10px;
+    padding:20px;
+    background:#2c2c2c;
+    color:white;
+}
+
+dialog::backdrop{
+    background:rgba(0,0,0,0.5);
+}
+
+dialog label{
+    display:block;
+    margin:10px 0;
+}
+
+dialog input{
+    width:100%;
+    padding:6px;
+    border-radius:6px;
+    border:1px solid #444;
+    background:#1b1b1b;
+    color:white;
+    margin-top:6px;
+}
+
+.dialog-buttons{
+    margin-top:15px;
+    display:flex;
+    gap:10px;
+    justify-content:flex-end;
+}
