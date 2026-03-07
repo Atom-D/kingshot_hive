@@ -561,4 +561,4 @@ function importLayout(file){
    INITIALIZATION
 ========================================================= */
 
-loadLayout()
+window.addEventListener("load", loadLayout)
