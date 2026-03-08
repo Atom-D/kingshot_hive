@@ -105,7 +105,7 @@ window.addEventListener("load", positionTraps)
 
 function isTileOccupied(tileX, tileY, size){
 
-    const objects = document.querySelectorAll(".castle, .banner, .trap")
+    const objects = document.querySelectorAll(".castle, .banner, .trap, .plainshq")
 
     let mapRect = map.getBoundingClientRect()
 
@@ -116,8 +116,10 @@ function isTileOccupied(tileX, tileY, size){
         let x = rect.left - mapRect.left
         let y = rect.top  - mapRect.top
 
-        let objSize = obj.classList.contains("trap") ? trapSize :
-            obj.classList.contains("castle") ? castleSize : 1
+        let objSize =
+            obj.classList.contains("trap") || obj.classList.contains("plainshq") ? trapSize :
+                obj.classList.contains("castle") ? castleSize :
+                    1
 
         let objTileX = Math.round(x / grid)
         let objTileY = Math.round(y / grid)
@@ -148,7 +150,7 @@ function findFreeTile(size){
 
     return {x:0, y:0}
 }
-function createCastle(x=0,y=0,name="",power="0M"){
+function createCastle(x=0,y=0,name="",power="0M", skipList=false){
 
     // if requested position is occupied, find a free tile
     let tileX = Math.round(x / grid)
@@ -188,6 +190,7 @@ function createCastle(x=0,y=0,name="",power="0M"){
 
     id++
 
+    if(!skipList) updatePlayerList()
 }
 
 function createBanner(x = 0, y = 0){
@@ -217,6 +220,35 @@ function createBanner(x = 0, y = 0){
     makeDraggable(b)
 }
 
+function createPlainsHQ(x=0,y=0){
+
+    let tileX = Math.round(x / grid)
+    let tileY = Math.round(y / grid)
+
+    if(isTileOccupied(tileX, tileY, trapSize)){
+        let free = findFreeTile(trapSize)
+        tileX = free.x
+        tileY = free.y
+    }
+
+    x = tileX * grid
+    y = tileY * grid
+
+    let hq = document.createElement("div")
+    hq.className = "plainshq"
+
+    hq.innerHTML = `<div class="hq-label">Plains HQ</div>`
+
+    map.appendChild(hq)
+
+    let offset = (grid*trapSize - hq.offsetWidth)/2
+
+    hq.style.left = x + offset + "px"
+    hq.style.top  = y + offset + "px"
+
+    makeDraggable(hq)
+}
+
 /* =========================================================
    UI ACTIONS
    ---------------------------------------------------------
@@ -238,6 +270,17 @@ function addCastle(){
 function addBanner(){
 
     createBanner(
+        200 + spawnOffset * grid,
+        200
+    )
+
+    spawnOffset++
+
+}
+
+function addPlainsHQ(){
+
+    createPlainsHQ(
         200 + spawnOffset * grid,
         200
     )
@@ -287,6 +330,7 @@ castleForm.addEventListener("submit", (e) => {
 <div class="castle-power">${power}</div>
 `
 
+        updatePlayerList()
     }else{
 
         createCastle(
@@ -315,6 +359,7 @@ deleteConfirm.addEventListener("click", () => {
 
     if(deleteTarget){
         deleteTarget.remove()
+        updatePlayerList()
     }
 
     deleteDialog.close()
@@ -330,6 +375,8 @@ deleteConfirm.addEventListener("click", () => {
 function makeDraggable(el){
 
     el.addEventListener("mousedown",(e)=>{
+
+        if(e.button !== 0) return
 
         selected = el
 
@@ -348,9 +395,16 @@ function makeDraggable(el){
 
         e.preventDefault()
 
-        if(el.classList.contains("castle") || el.classList.contains("banner")){
+        if(
+            el.classList.contains("castle") ||
+            el.classList.contains("banner") ||
+            el.classList.contains("plainshq")
+        ){
 
-            let type = el.classList.contains("banner") ? "Banner" : "Castle"
+            let type =
+                el.classList.contains("banner") ? "Banner" :
+                    el.classList.contains("plainshq") ? "Plains HQ" :
+                        "Castle"
 
             deleteTarget = el
             document.getElementById("deleteText").textContent = type + " delete?"
@@ -415,9 +469,12 @@ document.addEventListener("mouseup",()=>{
 
     let size
 
-    if(selected.classList.contains("trap")) size = trapSize
-    else if(selected.classList.contains("banner")) size = 1
-    else size = castleSize
+    if(selected.classList.contains("trap") || selected.classList.contains("plainshq"))
+        size = trapSize
+    else if(selected.classList.contains("banner"))
+        size = 1
+    else
+        size = castleSize
 
     let offset = (grid*size - selected.offsetWidth)/2
 
@@ -432,6 +489,99 @@ document.addEventListener("mouseup",()=>{
 })
 
 /* =========================================================
+   PLAYERLIST
+   ---------------------------------------------------------
+   Create player list from castles on map
+========================================================= */
+
+function updatePlayerList(){
+
+    const list = document.getElementById("playerList")
+    if(!list) return
+
+    list.innerHTML = ""
+
+    let players = []
+
+    document.querySelectorAll(".castle").forEach(c=>{
+
+        let power = c.dataset.power || "0M"
+
+        players.push({
+            name: c.dataset.name,
+            power: power,
+            value: parseFloat(power)
+        })
+
+    })
+
+    players.sort((a,b)=> b.value - a.value)
+
+    players.forEach(p=>{
+
+        let el = document.createElement("div")
+        el.className = "player"
+
+        el.innerHTML = `
+<div class="player-info">
+    <span class="player-name">${p.name}</span>
+    <span class="player-power">${p.power}</span>
+</div>
+<div class="edit">✎</div>
+`
+
+        /* highlight player + castle */
+        el.addEventListener("click",()=>{
+
+            const active = el.classList.contains("active")
+
+            const playersUI = document.querySelectorAll(".player")
+            const castles = document.querySelectorAll(".castle")
+
+            playersUI.forEach(e=>e.classList.remove("active"))
+            castles.forEach(e=>e.classList.remove("active"))
+
+            if(active) return
+
+            el.classList.add("active")
+
+            castles.forEach(c=>{
+                if(c.dataset.name === p.name){
+                    c.classList.add("active")
+                }
+            })
+
+        })
+
+        /* edit button */
+        el.querySelector(".edit").addEventListener("click",(e)=>{
+
+            e.stopPropagation()
+
+            let castle = Array.from(document.querySelectorAll(".castle"))
+                .find(c => c.dataset.name === p.name)
+
+            if(!castle) return
+
+            editTarget = castle
+
+            document.getElementById("castleName").value = castle.dataset.name
+            document.getElementById("castlePower").value = castle.dataset.power
+
+            castleDialogTitle.textContent = "Edit castle"
+            castleAddBtn.textContent = "Update"
+
+            castleDialog.showModal()
+
+        })
+
+        list.appendChild(el)
+
+    })
+
+}
+
+/* =========================================================
    STORAGE
    ---------------------------------------------------------
    Save layout to browser localStorage
@@ -441,11 +591,11 @@ function saveLayout(){
 
     let layout=[]
 
-    document.querySelectorAll(".castle,.banner,.trap").forEach(c=>{
+    document.querySelectorAll(".castle,.banner,.trap,.plainshq").forEach(c=>{
 
         let size
 
-        if(c.classList.contains("trap")) size=trapSize
+        if(c.classList.contains("trap") || c.classList.contains("plainshq")) size=trapSize
         else if(c.classList.contains("banner")) size=1
         else size=castleSize
 
@@ -456,7 +606,9 @@ function saveLayout(){
 
         layout.push({
             type:c.classList.contains("trap")?"trap":
-                c.classList.contains("banner")?"banner":"castle",
+                c.classList.contains("banner")?"banner":
+                    c.classList.contains("plainshq")?"plainshq":
+                        "castle",
             name:c.dataset.name||"",
             power:c.dataset.power||"",
             x:tileX,
@@ -485,12 +637,13 @@ function loadLayout(){
 
     let layout=JSON.parse(data)
 
-    document.querySelectorAll(".castle,.banner").forEach(c=>c.remove())
+    document.querySelectorAll(".castle,.banner,.plainshq").forEach(c=>c.remove())
 
     layout.forEach(c=>{
 
-        if(c.type==="castle") createCastle(c.x*grid,c.y*grid,c.name,c.power)
+        if(c.type==="castle") createCastle(c.x*grid,c.y*grid,c.name,c.power,true)
         if(c.type==="banner") createBanner(c.x*grid,c.y*grid)
+        if(c.type==="plainshq") createPlainsHQ(c.x*grid,c.y*grid)
 
         if(c.type==="trap"){
 
@@ -508,7 +661,7 @@ function loadLayout(){
         }
 
     })
-
+    updatePlayerList()
 }
 
 /* =========================================================
@@ -540,9 +693,9 @@ function importLayout(file){
 
     if(!file) return
 
-    let reader=new FileReader()
+    let reader = new FileReader()
 
-    reader.onload=function(e){
+    reader.onload = function(e){
 
         localStorage.setItem(
             "kingshotLayout",
@@ -554,6 +707,40 @@ function importLayout(file){
     }
 
     reader.readAsText(file)
+
+}
+
+function exportPlayerList(){
+
+    let players = []
+
+    document.querySelectorAll(".castle").forEach(c=>{
+
+        let power = c.dataset.power || "0M"
+
+        players.push({
+            name: c.dataset.name || "",
+            power: power,
+            value: parseFloat(power)
+        })
+
+    })
+
+    players.sort((a,b)=> b.value - a.value)
+
+    let rows = players.map(p => `"${p.name}","${p.power}"`)
+
+    let csv = "Name,Power\n" + rows.join("\n")
+
+    let blob = new Blob([csv], {type:"text/csv"})
+    let url = URL.createObjectURL(blob)
+
+    let a = document.createElement("a")
+    a.href = url
+    a.download = "kingshot_players.csv"
+    a.click()
+
+    URL.revokeObjectURL(url)
 
 }
 
