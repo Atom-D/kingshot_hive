@@ -1,4 +1,4 @@
-![Image 1](https://github.com/user-attachments/assets/64cea553-9e53-443d-ada7-dd4065e91172)
+![Image 1](https://github.com/user-attachments/assets/abb3898a-a5f8-41bc-877a-b48ccf171784)
 # Kingshot Bear Trap Planner
 
 A visual planning tool for **Kingshot alliance trap events**.
