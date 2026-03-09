@@ -150,7 +150,7 @@ function findFreeTile(size){
 
     return {x:0, y:0}
 }
-function createCastle(x=0,y=0,name="",power="0M", skipList=false){
+function createCastle(x=0,y=0,name="",power="0M", trap="F", skipList=false){
 
     // if requested position is occupied, find a free tile
     let tileX = Math.round(x / grid)
@@ -166,13 +166,15 @@ function createCastle(x=0,y=0,name="",power="0M", skipList=false){
     y = tileY * grid
 
     let c=document.createElement("div")
-    c.dataset.power=power
+    c.dataset.power = power
+    c.dataset.trap = trap      // ⭐ trap opslaan
     c.className="castle"
 
     if(!name) name="Castle "+id
 
     c.innerHTML=`
 <div class="castle-name">${name}</div>
+<div class="castle-trap"></div>
 <div class="castle-power">${power}</div>
 `
 
@@ -190,7 +192,10 @@ function createCastle(x=0,y=0,name="",power="0M", skipList=false){
 
     id++
 
-    if(!skipList) updatePlayerList()
+    if(!skipList){
+        updatePlayerList()
+        applyCastleLevels()
+    }
 }
 
 function createBanner(x = 0, y = 0){
@@ -303,6 +308,23 @@ function setZoom(value, btn){
     btn.classList.add("active")
 }
 
+function setTrap(t, btn=null){
+
+    document.getElementById("castleTrap").value = t
+
+    document.querySelectorAll(".trap-select button")
+        .forEach(b => b.classList.remove("active"))
+
+    if(btn){
+        btn.classList.add("active")
+    } else {
+        document
+            .querySelector(`.trap-select button[onclick*="'${t}'"]`)
+            ?.classList.add("active")
+    }
+
+}
+
 /* =========================================================
    CASTLE DIALOG HANDLING
 ========================================================= */
@@ -319,14 +341,17 @@ castleForm.addEventListener("submit", (e) => {
 
     let name = document.getElementById("castleName").value
     let power = document.getElementById("castlePower").value || "0M"
+    let trap = document.getElementById("castleTrap").value
 
     if(editTarget){
 
         editTarget.dataset.name = name
         editTarget.dataset.power = power
+        editTarget.dataset.trap = trap
 
         editTarget.innerHTML = `
 <div class="castle-name">${name}</div>
+<div class="castle-trap"></div>
 <div class="castle-power">${power}</div>
 `
 
@@ -337,7 +362,8 @@ castleForm.addEventListener("submit", (e) => {
             spawnOffset * castleSize * grid,
             0,
             name,
-            power
+            power,
+            trap
         )
 
         spawnOffset++
@@ -423,6 +449,7 @@ function makeDraggable(el){
 
         document.getElementById("castleName").value = el.dataset.name
         document.getElementById("castlePower").value = el.dataset.power
+        setTrap(el.dataset.trap || "F")
 
         castleDialogTitle.textContent = "Edit castle"
         castleAddBtn.textContent = "Update"
@@ -489,6 +516,80 @@ document.addEventListener("mouseup",()=>{
 })
 
 /* =========================================================
+   PLAYER POWER ANALYSIS
+   ---------------------------------------------------------
+   Calculates clan average power and player strength level
+========================================================= */
+
+function parsePower(p){
+
+    if(!p) return 0
+
+    p = p.toUpperCase().replace("M","")
+
+    return parseFloat(p)
+}
+
+function getAveragePower(){
+
+    let powers = []
+
+    document.querySelectorAll(".castle").forEach(c=>{
+        powers.push(parsePower(c.dataset.power))
+    })
+
+    if(powers.length === 0) return 0
+
+    let sum = powers.reduce((a,b)=>a+b,0)
+
+    return sum / powers.length
+}
+
+function getPowerLevel(playerPower, avg){
+
+    if(avg === 0) return ""
+
+    let percent = (playerPower / avg) * 100
+
+    if(percent < 70) return "Poor"
+    if(percent < 85) return "Very Low"
+    if(percent < 100) return "Low"
+    if(percent < 115) return "Medium"
+    if(percent < 130) return "High"
+    if(percent < 150) return "Very High"
+
+    return "Exceptional"
+}
+
+function applyCastleLevels(){
+
+    let avg = getAveragePower()
+
+    document.querySelectorAll(".castle").forEach(c=>{
+
+        let value = parsePower(c.dataset.power)
+        let level = getPowerLevel(value, avg)
+
+        // oude level classes verwijderen
+        c.classList.remove(
+            "level-poor",
+            "level-very-low",
+            "level-low",
+            "level-medium",
+            "level-high",
+            "level-very-high",
+            "level-exceptional"
+        )
+
+        if(level){
+            let cls = "level-" + level.replace(/\s+/g,'-').toLowerCase()
+            c.classList.add(cls)
+        }
+
+    })
+}
+
+/* =========================================================
    PLAYERLIST
    ---------------------------------------------------------
    Create player list from castles on map
@@ -503,14 +604,20 @@ function updatePlayerList(){
 
     let players = []
 
+    let avg = getAveragePower()
+
     document.querySelectorAll(".castle").forEach(c=>{
 
         let power = c.dataset.power || "0M"
 
+        let value = parsePower(power)
+        let level = getPowerLevel(value, avg)
+
         players.push({
             name: c.dataset.name,
             power: power,
-            value: parseFloat(power)
+            value: value,
+            level: level
         })
 
     })
@@ -520,7 +627,11 @@ function updatePlayerList(){
     players.forEach(p=>{
 
         let el = document.createElement("div")
-        el.className = "player"
+        let levelClass = p.level
+            ? "level-" + p.level.replace(/\s+/g,'-').toLowerCase()
+            : ""
+
+        el.className = "player " + levelClass
 
         el.innerHTML = `
 <div class="player-info">
@@ -567,6 +678,7 @@ function updatePlayerList(){
 
             document.getElementById("castleName").value = castle.dataset.name
             document.getElementById("castlePower").value = castle.dataset.power
+            setTrap(castle.dataset.trap || "F")
 
             castleDialogTitle.textContent = "Edit castle"
             castleAddBtn.textContent = "Update"
@@ -611,6 +723,7 @@ function saveLayout(){
                         "castle",
             name:c.dataset.name||"",
             power:c.dataset.power||"",
+            trap:c.dataset.trap||"F",
             x:tileX,
             y:tileY
         })
@@ -641,7 +754,8 @@ function loadLayout(){
 
     layout.forEach(c=>{
 
-        if(c.type==="castle") createCastle(c.x*grid,c.y*grid,c.name,c.power,true)
+        if(c.type==="castle")
+            createCastle(c.x*grid, c.y*grid, c.name, c.power, c.trap, true)
         if(c.type==="banner") createBanner(c.x*grid,c.y*grid)
         if(c.type==="plainshq") createPlainsHQ(c.x*grid,c.y*grid)
 
@@ -662,6 +776,7 @@ function loadLayout(){
 
     })
     updatePlayerList()
+    applyCastleLevels()
 }
 
 /* =========================================================
@@ -710,6 +825,30 @@ function importLayout(file){
 
 }
 
+async function shareLayout(){
+
+    let json = localStorage.getItem("kingshotLayout")
+
+    if(!json){
+        alert("No layout saved")
+        return
+    }
+
+    let blob = new Blob([json], {type:"application/json"})
+
+    let form = new FormData()
+    form.append("reqtype","fileupload")
+    form.append("fileToUpload", blob, "layout.json")
+
+    let r = await fetch("https://catbox.moe/user/api.php",{
+        method:"POST",
+        body:form
+    })
+
+    let url = await r.text()
+
+    prompt("Share this link:", url)
+}
 function exportPlayerList(){
 
     let players = []

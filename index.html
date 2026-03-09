@@ -26,9 +26,19 @@
             <input type="text" id="castlePower" placeholder="10M">
         </label>
 
+        <label>Trap</label>
+
+        <div class="trap-select">
+            <button type="button" onclick="setTrap('M', this)">M</button>
+            <button type="button" onclick="setTrap('E', this)">E</button>
+            <button type="button" onclick="setTrap('F', this)" class="active">F</button>
+        </div>
+
+        <input type="hidden" id="castleTrap" value="F">
+
         <div class="dialog-buttons">
-            <button type="button" id="castleCancelBtn">Cancel</button>
             <button id="castleAddBtn" value="ok">Add</button>
+            <button type="button" id="castleCancelBtn">Cancel</button>
         </div>
 
     </form>
@@ -40,8 +50,8 @@
     <p id="deleteText">Delete object?</p>
 
     <div class="dialog-buttons">
-        <button id="deleteCancel">Cancel</button>
         <button id="deleteConfirm">Delete</button>
+        <button id="deleteCancel">Cancel</button>
     </div>
 
 </dialog>
