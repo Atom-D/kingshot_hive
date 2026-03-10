@@ -6,6 +6,7 @@ body{
     color:white;
     font-family: "Segoe UI", Arial, sans-serif;
     text-align:center;
+    overflow-x:auto;
 }
 
 #map{
@@ -210,6 +211,7 @@ body{
     justify-content:center;
     align-items:flex-start;
     gap:30px;
+    min-width:1900px;
 }
 
 #playerList{
