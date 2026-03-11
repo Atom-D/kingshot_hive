@@ -7,12 +7,14 @@ This planner helps organize player positioning around bear traps and plains HQ d
 ---
 
 ## Live Version
-👉 [Open the planner](https://atom-d.github.io/kingshot_hive/)
+🔗 **Live tool:** https://atom-d.github.io/kingshot_hive/
 
 ---
 
 ## Screenshot
-![Planner Screenshot](docs/planner.jpg)
+<p align="center">
+  <img src="docs/planner.jpg" width="900">
+</p>
 
 ---
 
@@ -81,24 +83,28 @@ The planner supports multiple persistence options:
 
 ## File Structure
 
-/assets
-/css
-style.css
-/js
-planner.js
-
-index.html
-
+```
+kingshot_hive
+│
+├─ index.html
+├─ README.md
+│
+├─ assets
+│   ├─ css
+│   │   └─ style.css
+│   │
+│   └─ js
+│       └─ planner.js
+│
+└─ docs
+    └─ planner.jpg
+```
 
 ---
 
 ## Running the Planner
 
-Simply open:
-index.html
-
-
-in any modern browser.
+Simply open `index.html` in any modern browser.
 
 No server or installation required.
 
