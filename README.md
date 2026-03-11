@@ -1,9 +1,18 @@
-![Image 1](https://github.com/user-attachments/assets/abb3898a-a5f8-41bc-877a-b48ccf171784)
 # Kingshot Bear Trap Planner
 
 A visual planning tool for **Kingshot alliance trap events**.
 
 This planner helps organize player positioning around bear traps and plains HQ during events by providing a grid-based drag & drop map with power-based player analysis.
+
+---
+
+## Live Version
+👉 [Open the planner](https://atom-d.github.io/kingshot_hive/)
+
+---
+
+## Screenshot
+![Planner Screenshot](docs/planner.jpg)
 
 ---
 
