@@ -106,18 +106,6 @@ No frameworks required.
 
 ---
 
-## Future Improvements
-
-Possible additions:
-
-- Map panning
-- Undo / redo
-- Multi-trap layouts
-- Alliance roster import
-- Real-time collaboration
-
----
-
 ## License
 
 Personal project. Free to use and modify.
