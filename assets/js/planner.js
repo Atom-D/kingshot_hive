@@ -356,6 +356,7 @@ castleForm.addEventListener("submit", (e) => {
 `
 
         updatePlayerList()
+        applyCastleLevels()
     }else{
 
         createCastle(
