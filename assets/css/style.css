@@ -1,25 +1,93 @@
 /* =========================================================
    GLOBAL RESET & BASE
 ========================================================= */
-
+ 
 *{
     box-sizing:border-box;
+}
+html{
+    height:100%;
 }
 body{
     background:#1b1b1b;
     color:white;
     font-family: "Segoe UI", Arial, sans-serif;
     text-align:center;
-    overflow-x:auto;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
 }
 
 /* =========================================================
    MAP
 ========================================================= */
 
+.map-area{
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    flex:1;
+    min-width:0;
+    min-height:0;
+}
+
+.map-wrapper{
+    display:grid;
+    grid-template-columns:40px auto;
+    grid-template-rows:40px auto;
+    overflow:auto;
+    flex:1;
+    min-width:0;
+    min-height:0;
+}
+
+.axis-corner{
+    grid-column:1;
+    grid-row:1;
+    position:sticky;
+    top:0;
+    left:0;
+    z-index:11;
+    background:#1b1b1b;
+}
+
+.axis-x{
+    grid-column:2;
+    grid-row:1;
+    display:flex;
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:#1b1b1b;
+}
+
+.axis-y{
+    grid-column:1;
+    grid-row:2;
+    display:flex;
+    flex-direction:column;
+    position:sticky;
+    left:0;
+    z-index:10;
+    background:#1b1b1b;
+}
+
+.axis-x div,
+.axis-y div{
+    width:40px;
+    height:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    color:#888;
+    flex-shrink:0;
+}
+
 #map{
-    width:1600px;
-    height:1000px;
+    grid-column:2;
+    grid-row:2;
     margin:0;
     position:relative;
 
@@ -32,8 +100,12 @@ body{
     border-bottom:1px solid #333;
 }
 
-.map-area{
-    width:1600px;
+#territoryCanvas{
+    position:absolute;
+    top:0;
+    left:0;
+    pointer-events:none;
+    z-index:1;
 }
 
 /* =========================================================
@@ -56,7 +128,7 @@ body{
 
 .castle-name{
     font-size:11px;
-    line-height:12px;
+    line-height:8px;
     font-weight:600;
     font-family:"Segoe UI", Arial, sans-serif;
     color:inherit;
@@ -86,7 +158,7 @@ body{
 }
 
 .castle[data-trap="M"] .castle-trap{ background:#43a047; }
-.castle[data-trap="E"] .castle-trap{ background: #1a1c1e; }
+.castle[data-trap="E"] .castle-trap{ background:#9c27b0; }
 .castle[data-trap="F"] .castle-trap{ background:#1e88e5; }
 
 .castle{
@@ -126,14 +198,17 @@ body{
     user-select:none;
 }
 
-.castle,.trap,.plainshq{
+.castle,.trap,.plainshq,.allianceresource,.water,.mountain{
     cursor:grab;
     user-select:none;
 }
 
 .castle:active,
 .trap:active,
-.plainshq:active{
+.plainshq:active,
+.allianceresource:active,
+.water:active,
+.mountain:active{
     cursor:grabbing;
 }
 
@@ -157,6 +232,27 @@ body{
     pointer-events:none;
 }
 
+.allianceresource{
+    width:80px;
+    height:80px;
+    background:#6a1b9a;
+    border-radius:10px;
+    position:absolute;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:4;
+}
+
+.allianceresource-label{
+    font-size:12px;
+    font-weight:bold;
+    color:white;
+    text-align:center;
+    pointer-events:none;
+    line-height:1.2;
+}
+
 .dragging{
     opacity:0.7;
 }
@@ -166,10 +262,9 @@ body{
 ========================================================= */
 
 .toolbar-container{
-    width:1600px;
     margin-bottom:10px;
     display:flex;
-    justify-content:center;
+    justify-content:flex-start;
     align-items:center;
     gap:30px;
 }
@@ -184,8 +279,50 @@ body{
     padding-right:15px;
 }
 
+.origin-label{
+    font-size:13px;
+    color:#aaa;
+}
+
 .toolbar-group input[type="file"]{
     height:36px;
+}
+
+/* Add dropdown menu */
+.add-dropdown{
+    position:relative;
+    display:inline-block;
+}
+
+.add-dropdown-menu{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background:#2c2c2c;
+    border:1px solid #555;
+    border-radius:6px;
+    min-width:160px;
+    z-index:100;
+    padding:4px 0;
+    box-shadow:0 4px 12px rgba(0,0,0,0.5);
+}
+
+.add-dropdown-menu.open{
+    display:block;
+}
+
+.add-dropdown-item{
+    padding:8px 14px;
+    cursor:pointer;
+    font-size:13px;
+    color:#ddd;
+    white-space:nowrap;
+}
+
+.add-dropdown-item:hover{
+    background:#3a3a3a;
+    color:#fff;
 }
 
 .toolbar{
@@ -212,9 +349,12 @@ body{
 .layout{
     display:flex;
     justify-content:center;
-    align-items:flex-start;
+    align-items:stretch;
     gap:30px;
     min-width:1900px;
+    flex:1;
+    min-height:0;
+    overflow:hidden;
 }
 
 /* =========================================================
@@ -225,6 +365,8 @@ body{
     width:240px;
     display:flex;
     flex-direction:column;
+    overflow:hidden;
+    flex-shrink:0;
 }
 
 .player-header{
@@ -238,11 +380,41 @@ body{
     height:36px;
 }
 
+.rank-filter{
+    display:flex;
+    gap:4px;
+    justify-content:center;
+    margin-bottom:8px;
+    flex-wrap:wrap;
+}
+
+.rank-filter-btn{
+    padding:4px 8px;
+    font-size:12px;
+    border-radius:6px;
+    background:#2c2c2c;
+    border:1px solid #555;
+    color:#ccc;
+    cursor:pointer;
+    min-width:32px;
+}
+
+.rank-filter-btn:hover{
+    background:#3a3a3a;
+    color:#fff;
+}
+
+.rank-filter-btn.active{
+    background:#2e7d32;
+    border-color:#4caf50;
+    color:#fff;
+}
+
 #playerList{
     width:260px;
     border:1px solid #333;
     padding:10px;
-    height:1000px;
+    flex:1;
     overflow-y:auto;
 }
 
@@ -268,6 +440,18 @@ body{
 
 .player-name{
     font-weight:600;
+    font-size: 12px;
+}
+
+.player-rank{
+    font-size:10px;
+    font-weight:700;
+    color:#aaa;
+    background:#1a1a1a;
+    border-radius:4px;
+    padding:1px 5px;
+    flex-shrink:0;
+    align-self:center;
 }
 
 .player:hover .player-name{
@@ -355,6 +539,54 @@ body{
     color:white;
 }
 
+.banner.active{
+    outline:3px solid #2e7d32;
+}
+
+.trap.active,
+.plainshq.active{
+    outline:3px solid #2e7d32;
+}
+
+.allianceresource.active{
+    outline:3px solid #2e7d32;
+}
+
+.water{
+    width:40px;
+    height:40px;
+    background:radial-gradient(circle at 35% 35%, #81d4fa, #0277bd);
+    border-radius:6px;
+    position:absolute;
+    z-index:3;
+}
+
+.water.active{
+    outline:3px solid #2e7d32;
+}
+
+.mountain{
+    width:40px;
+    height:40px;
+    background:linear-gradient(160deg, #ffffff 40%, #b0bec5 100%);
+    border:2px solid #90a4ae;
+    border-radius:6px;
+    position:absolute;
+    z-index:3;
+    box-sizing:border-box;
+}
+
+.mountain.active{
+    outline:3px solid #2e7d32;
+}
+
+.axis-highlight{
+    background:#f0c040;
+    color:#111;
+    font-weight:bold;
+    border-radius:4px;
+}
+
 /* =========================================================
    BUTTONS / INPUTS
 ========================================================= */
@@ -414,6 +646,14 @@ input[type="file"]:hover::file-selector-button{
     outline:2px dashed rgba(255,200,0,0.6);
 }
 
+#castleCoords{
+    display:none;
+}
+
+#castleDialog.edit-mode #castleCoords{
+    display:block;
+}
+
 /* =========================================================
    DIALOG / MODAL
 ========================================================= */
@@ -438,6 +678,25 @@ input[type="file"]:hover::file-selector-button{
     border-color:#4caf50;
 }
 
+.rank-select{
+    display:flex;
+    justify-content:center;
+    gap:6px;
+    margin-top:6px;
+}
+
+.rank-select button{
+    width:32px;
+    height:28px;
+    padding:0;
+    font-weight:600;
+}
+
+.rank-select button.active{
+    background:#2e7d32;
+    border-color:#4caf50;
+}
+
 dialog{
     border:none;
     border-radius:10px;
@@ -455,6 +714,86 @@ dialog label{
     margin:10px 0;
 }
 
+/* =========================================================
+   BULK EDIT DIALOG
+========================================================= */
+
+#bulkEditDialog{
+    width:420px;
+    max-height:80vh;
+    flex-direction:column;
+    gap:12px;
+    overflow:hidden;
+}
+
+#bulkEditDialog[open]{
+    display:flex;
+}
+
+.bulk-rank-filter{
+    display:flex;
+    gap:4px;
+    flex-wrap:wrap;
+}
+
+.bulk-table-wrap{
+    overflow-y:auto;
+    flex:1;
+    border:1px solid #444;
+    border-radius:6px;
+}
+
+.bulk-table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13px;
+}
+
+.bulk-table thead th{
+    position:sticky;
+    top:0;
+    background:#1e1e1e;
+    padding:6px 10px;
+    text-align:left;
+    color:#aaa;
+    font-weight:600;
+    border-bottom:1px solid #444;
+}
+
+.bulk-table tbody tr:nth-child(even){
+    background:rgba(255,255,255,0.03);
+}
+
+.bulk-table tbody tr:hover{
+    background:rgba(255,255,255,0.07);
+}
+
+.bulk-table td{
+    padding:4px 8px;
+    vertical-align:middle;
+}
+
+.bulk-name{
+    color:#ddd;
+    white-space:nowrap;
+}
+
+.bulk-power-input{
+    width:80px;
+    background:#1a1a1a;
+    border:1px solid #555;
+    border-radius:4px;
+    color:white;
+    padding:3px 6px;
+    font-size:13px;
+}
+
+.bulk-power-input:focus{
+    outline:none;
+    border-color:#4caf50;
+    background:#222;
+}
+
 dialog input{
     width:100%;
     padding:6px;
@@ -470,6 +809,37 @@ dialog input{
     display:flex;
     gap:10px;
     justify-content:flex-end;
+}
+
+/* =========================================================
+   CONTEXT MENU
+========================================================= */
+
+.context-menu{
+    position:fixed;
+    background:#2c2c2c;
+    border:1px solid #555;
+    border-radius:8px;
+    padding:4px 0;
+    z-index:1000;
+    display:none;
+    min-width:150px;
+    box-shadow:0 4px 16px rgba(0,0,0,0.5);
+}
+
+.context-menu.visible{
+    display:block;
+}
+
+.context-menu-item{
+    padding:8px 16px;
+    cursor:pointer;
+    font-size:14px;
+    text-align:left;
+}
+
+.context-menu-item:hover{
+    background:#3a3a3a;
 }
 
 /* =========================================================

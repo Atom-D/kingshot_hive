@@ -1,0 +1,1866 @@
+{
+  "origin": {
+    "x": 701,
+    "y": 567
+  },
+  "dimensions": {
+    "w": 77,
+    "h": 84
+  },
+  "objects": [
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 13,
+      "y": 69
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 49,
+      "y": 69
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 26,
+      "y": 68
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 36,
+      "y": 67
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 56,
+      "y": 65
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 5,
+      "y": 65
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 12,
+      "y": 65
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 19,
+      "y": 65
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 26,
+      "y": 65
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 33,
+      "y": 65
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 40,
+      "y": 65
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 47,
+      "y": 65
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 54,
+      "y": 65
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 61,
+      "y": 65
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 68,
+      "y": 65
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 69,
+      "y": 62
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 36,
+      "y": 61
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 47,
+      "y": 60
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 68,
+      "y": 60
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 69,
+      "y": 60
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 70,
+      "y": 60
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 46,
+      "y": 58
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 68,
+      "y": 59
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 69,
+      "y": 59
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 70,
+      "y": 59
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 71,
+      "y": 59
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 5,
+      "y": 58
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 12,
+      "y": 58
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 19,
+      "y": 58
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 26,
+      "y": 58
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 33,
+      "y": 58
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 40,
+      "y": 58
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 54,
+      "y": 58
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 61,
+      "y": 58
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 67,
+      "y": 58
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 68,
+      "y": 58
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 69,
+      "y": 58
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 70,
+      "y": 58
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 71,
+      "y": 58
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 47,
+      "y": 57
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 66,
+      "y": 57
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 67,
+      "y": 57
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 68,
+      "y": 57
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 69,
+      "y": 57
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 70,
+      "y": 57
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 71,
+      "y": 57
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 18,
+      "y": 55
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 54,
+      "y": 56
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 66,
+      "y": 56
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 67,
+      "y": 56
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 68,
+      "y": 56
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 69,
+      "y": 56
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 70,
+      "y": 56
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 71,
+      "y": 56
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 66,
+      "y": 55
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 67,
+      "y": 55
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 68,
+      "y": 55
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 69,
+      "y": 55
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 70,
+      "y": 55
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 71,
+      "y": 55
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 7,
+      "y": 53
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 64,
+      "y": 53
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 67,
+      "y": 54
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 68,
+      "y": 54
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 69,
+      "y": 54
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 70,
+      "y": 54
+    },
+    {
+      "type": "mountain",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 71,
+      "y": 54
+    },
+    {
+      "type": "castle",
+      "name": "Carol",
+      "power": "111.2M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 52,
+      "y": 52
+    },
+    {
+      "type": "castle",
+      "name": "Lord Fox Silver",
+      "power": "139.7M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 54,
+      "y": 52
+    },
+    {
+      "type": "castle",
+      "name": "Chief",
+      "power": "185.8M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 56,
+      "y": 52
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 61,
+      "y": 53
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 68,
+      "y": 53
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 5,
+      "y": 51
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 12,
+      "y": 51
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 19,
+      "y": 51
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 26,
+      "y": 51
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 33,
+      "y": 51
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 40,
+      "y": 51
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 47,
+      "y": 51
+    },
+    {
+      "type": "castle",
+      "name": "Grawrnet",
+      "power": "189.6M",
+      "trap": "E",
+      "rank": "R4",
+      "x": 52,
+      "y": 50
+    },
+    {
+      "type": "castle",
+      "name": "San Fernando",
+      "power": "189.6M",
+      "trap": "E",
+      "rank": "R4",
+      "x": 54,
+      "y": 50
+    },
+    {
+      "type": "castle",
+      "name": "howie",
+      "power": "220.7M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 56,
+      "y": 50
+    },
+    {
+      "type": "castle",
+      "name": "Ninja",
+      "power": "228.8M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 58,
+      "y": 50
+    },
+    {
+      "type": "castle",
+      "name": "Nelltonell",
+      "power": "167.7M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 60,
+      "y": 50
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 68,
+      "y": 51
+    },
+    {
+      "type": "castle",
+      "name": "اااااااااااااااا",
+      "power": "192.0M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 50,
+      "y": 48
+    },
+    {
+      "type": "castle",
+      "name": "Jessi",
+      "power": "196.8M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 52,
+      "y": 48
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 54,
+      "y": 49
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 57,
+      "y": 49
+    },
+    {
+      "type": "castle",
+      "name": "TwyƵtiD",
+      "power": "243.7M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 58,
+      "y": 48
+    },
+    {
+      "type": "castle",
+      "name": "guvnor",
+      "power": "200.3M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 60,
+      "y": 48
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 64,
+      "y": 49
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 5,
+      "y": 47
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 38,
+      "y": 47
+    },
+    {
+      "type": "castle",
+      "name": "Hmrc",
+      "power": "186.4M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 50,
+      "y": 46
+    },
+    {
+      "type": "castle",
+      "name": "DUDECALLMEDUDE",
+      "power": "209.3M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 52,
+      "y": 46
+    },
+    {
+      "type": "trap",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 55,
+      "y": 46
+    },
+    {
+      "type": "castle",
+      "name": "mexbik",
+      "power": "228.7M",
+      "trap": "F",
+      "rank": "R4",
+      "x": 58,
+      "y": 46
+    },
+    {
+      "type": "castle",
+      "name": "King Ali",
+      "power": "149.7M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 60,
+      "y": 46
+    },
+    {
+      "type": "castle",
+      "name": "TwyƵtiD ThriCe",
+      "power": "16.3M",
+      "trap": "F",
+      "rank": "R3",
+      "x": 62,
+      "y": 46
+    },
+    {
+      "type": "castle",
+      "name": "●●●●○○○○○■■■",
+      "power": "114.9M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 70,
+      "y": 46
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 54,
+      "y": 46
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 14,
+      "y": 44
+    },
+    {
+      "type": "castle",
+      "name": "BaNDaR2",
+      "power": "57.3M",
+      "trap": "F",
+      "rank": "R2",
+      "x": 48,
+      "y": 44
+    },
+    {
+      "type": "castle",
+      "name": "Elara",
+      "power": "145.0M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 50,
+      "y": 44
+    },
+    {
+      "type": "castle",
+      "name": "mak",
+      "power": "141.1M",
+      "trap": "F",
+      "rank": "R3",
+      "x": 52,
+      "y": 44
+    },
+    {
+      "type": "castle",
+      "name": "ZzzZzzZzz",
+      "power": "194.3M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 54,
+      "y": 44
+    },
+    {
+      "type": "castle",
+      "name": "Thrav",
+      "power": "189.3M",
+      "trap": "E",
+      "rank": "R5",
+      "x": 56,
+      "y": 44
+    },
+    {
+      "type": "castle",
+      "name": "bigdaddy",
+      "power": "207.1M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 58,
+      "y": 44
+    },
+    {
+      "type": "castle",
+      "name": "LordRumpel",
+      "power": "168.7M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 60,
+      "y": 44
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 5,
+      "y": 44
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 12,
+      "y": 44
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 19,
+      "y": 44
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 21,
+      "y": 43
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 26,
+      "y": 44
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 33,
+      "y": 44
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 40,
+      "y": 44
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 47,
+      "y": 44
+    },
+    {
+      "type": "castle",
+      "name": "Goron201",
+      "power": "117.9M",
+      "trap": "F",
+      "rank": "R3",
+      "x": 62,
+      "y": 43
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 68,
+      "y": 44
+    },
+    {
+      "type": "castle",
+      "name": "ULUTÜRK'",
+      "power": "30.1M",
+      "trap": "F",
+      "rank": "R3",
+      "x": 48,
+      "y": 42
+    },
+    {
+      "type": "castle",
+      "name": "Trumptrain",
+      "power": "182.0M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 50,
+      "y": 42
+    },
+    {
+      "type": "castle",
+      "name": "TomTom",
+      "power": "132.5M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 52,
+      "y": 42
+    },
+    {
+      "type": "castle",
+      "name": "N4STI3R",
+      "power": "148.9M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 54,
+      "y": 42
+    },
+    {
+      "type": "castle",
+      "name": "Ossie the First",
+      "power": "236.3M",
+      "trap": "F",
+      "rank": "R4",
+      "x": 56,
+      "y": 42
+    },
+    {
+      "type": "castle",
+      "name": "Angelo",
+      "power": "208.3M",
+      "trap": "E",
+      "rank": "R2",
+      "x": 58,
+      "y": 42
+    },
+    {
+      "type": "castle",
+      "name": "Maczek",
+      "power": "16.3M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 60,
+      "y": 42
+    },
+    {
+      "type": "plainshq",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 63,
+      "y": 40
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 54,
+      "y": 41
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 67,
+      "y": 40
+    },
+    {
+      "type": "castle",
+      "name": "Źuliet",
+      "power": "104.3M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 50,
+      "y": 39
+    },
+    {
+      "type": "castle",
+      "name": "hoop",
+      "power": "148.1M",
+      "trap": "M",
+      "rank": "R2",
+      "x": 52,
+      "y": 39
+    },
+    {
+      "type": "castle",
+      "name": "Mrzero",
+      "power": "207.5M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 54,
+      "y": 39
+    },
+    {
+      "type": "castle",
+      "name": "kumamoto",
+      "power": "185.5M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 56,
+      "y": 39
+    },
+    {
+      "type": "castle",
+      "name": "edy80",
+      "power": "198.3M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 58,
+      "y": 39
+    },
+    {
+      "type": "castle",
+      "name": "Little Howie",
+      "power": "27.2M",
+      "trap": "E",
+      "rank": "R1",
+      "x": 60,
+      "y": 39
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 48,
+      "y": 38
+    },
+    {
+      "type": "castle",
+      "name": "KING M ALFATH R",
+      "power": "81.2M",
+      "trap": "F",
+      "rank": "R2",
+      "x": 62,
+      "y": 38
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 38,
+      "y": 37
+    },
+    {
+      "type": "castle",
+      "name": "RrrrrBear",
+      "power": "179.4M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 50,
+      "y": 37
+    },
+    {
+      "type": "castle",
+      "name": "SPAWN",
+      "power": "194.8M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 52,
+      "y": 37
+    },
+    {
+      "type": "castle",
+      "name": "Hulk 헐크 Holk",
+      "power": "285.5M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 54,
+      "y": 37
+    },
+    {
+      "type": "castle",
+      "name": "N4STY",
+      "power": "244.4M",
+      "trap": "F",
+      "rank": "R4",
+      "x": 56,
+      "y": 37
+    },
+    {
+      "type": "castle",
+      "name": "owowo",
+      "power": "218.4M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 58,
+      "y": 37
+    },
+    {
+      "type": "castle",
+      "name": "Polgas",
+      "power": "193.9M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 60,
+      "y": 37
+    },
+    {
+      "type": "castle",
+      "name": "ilayda13",
+      "power": "26.2M",
+      "trap": "F",
+      "rank": "R1",
+      "x": 64,
+      "y": 37
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 5,
+      "y": 37
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 12,
+      "y": 37
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 19,
+      "y": 37
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 26,
+      "y": 37
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 33,
+      "y": 37
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 40,
+      "y": 37
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 47,
+      "y": 37
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 68,
+      "y": 37
+    },
+    {
+      "type": "castle",
+      "name": "Shanomack",
+      "power": "213.7M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 50,
+      "y": 35
+    },
+    {
+      "type": "castle",
+      "name": "Svasth123",
+      "power": "215.7M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 52,
+      "y": 35
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 54,
+      "y": 36
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 57,
+      "y": 36
+    },
+    {
+      "type": "castle",
+      "name": "kAiRoS",
+      "power": "209.3M",
+      "trap": "M",
+      "rank": "R4",
+      "x": 58,
+      "y": 35
+    },
+    {
+      "type": "castle",
+      "name": "ShadowSkill",
+      "power": "183.4M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 60,
+      "y": 35
+    },
+    {
+      "type": "castle",
+      "name": "D C",
+      "power": "104.8M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 62,
+      "y": 35
+    },
+    {
+      "type": "castle",
+      "name": "ilaydafarm",
+      "power": "17.5M",
+      "trap": "F",
+      "rank": "R2",
+      "x": 64,
+      "y": 35
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 67,
+      "y": 34
+    },
+    {
+      "type": "castle",
+      "name": "SuperNova",
+      "power": "160.0M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 50,
+      "y": 33
+    },
+    {
+      "type": "castle",
+      "name": "Darth Vader",
+      "power": "207.1M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 52,
+      "y": 33
+    },
+    {
+      "type": "trap",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 55,
+      "y": 33
+    },
+    {
+      "type": "castle",
+      "name": "自己人",
+      "power": "218.2M",
+      "trap": "M",
+      "rank": "R4",
+      "x": 58,
+      "y": 33
+    },
+    {
+      "type": "castle",
+      "name": "Lord Eman",
+      "power": "225.3M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 60,
+      "y": 33
+    },
+    {
+      "type": "castle",
+      "name": "Jitendra India",
+      "power": "148.1M",
+      "trap": "F",
+      "rank": "R3",
+      "x": 62,
+      "y": 33
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 29,
+      "y": 32
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 54,
+      "y": 33
+    },
+    {
+      "type": "castle",
+      "name": "Jade Namikaze",
+      "power": "134.9M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 50,
+      "y": 31
+    },
+    {
+      "type": "castle",
+      "name": "Chema",
+      "power": "190.6M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 52,
+      "y": 31
+    },
+    {
+      "type": "castle",
+      "name": "Golly",
+      "power": "319.6M",
+      "trap": "M",
+      "rank": "R4",
+      "x": 54,
+      "y": 31
+    },
+    {
+      "type": "castle",
+      "name": "joy 조이 yoon",
+      "power": "239.2M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 56,
+      "y": 31
+    },
+    {
+      "type": "castle",
+      "name": "power 1",
+      "power": "181.9M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 58,
+      "y": 31
+    },
+    {
+      "type": "castle",
+      "name": "velgiia",
+      "power": "162.6M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 60,
+      "y": 31
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 64,
+      "y": 31
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 5,
+      "y": 30
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 12,
+      "y": 30
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 19,
+      "y": 30
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 26,
+      "y": 30
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 33,
+      "y": 30
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 40,
+      "y": 30
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 47,
+      "y": 30
+    },
+    {
+      "type": "castle",
+      "name": "Njami25",
+      "power": "83.7M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 50,
+      "y": 29
+    },
+    {
+      "type": "castle",
+      "name": "knight_Thunder",
+      "power": "150.5M",
+      "trap": "M",
+      "rank": "R3",
+      "x": 52,
+      "y": 29
+    },
+    {
+      "type": "castle",
+      "name": "BingLord",
+      "power": "177.9M",
+      "trap": "F",
+      "rank": "R3",
+      "x": 54,
+      "y": 29
+    },
+    {
+      "type": "castle",
+      "name": "YAZiEL",
+      "power": "149.5M",
+      "trap": "F",
+      "rank": "R3",
+      "x": 56,
+      "y": 29
+    },
+    {
+      "type": "castle",
+      "name": "Bombardir08",
+      "power": "157.3M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 58,
+      "y": 29
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 68,
+      "y": 30
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 61,
+      "y": 29
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 64,
+      "y": 28
+    },
+    {
+      "type": "castle",
+      "name": "Vandalart",
+      "power": "135.9M",
+      "trap": "E",
+      "rank": "R3",
+      "x": 52,
+      "y": 27
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 54,
+      "y": 26
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 57,
+      "y": 25
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 48,
+      "y": 24
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 5,
+      "y": 23
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 12,
+      "y": 23
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 16,
+      "y": 22
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 19,
+      "y": 23
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 26,
+      "y": 23
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 33,
+      "y": 23
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 40,
+      "y": 23
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 47,
+      "y": 23
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 54,
+      "y": 23
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 61,
+      "y": 23
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 68,
+      "y": 23
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 69,
+      "y": 22
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 26,
+      "y": 19
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 46,
+      "y": 18
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 5,
+      "y": 16
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 12,
+      "y": 16
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 19,
+      "y": 16
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 26,
+      "y": 16
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 33,
+      "y": 16
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 40,
+      "y": 16
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 47,
+      "y": 16
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 54,
+      "y": 16
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 61,
+      "y": 16
+    },
+    {
+      "type": "banner",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 68,
+      "y": 16
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 28,
+      "y": 12
+    },
+    {
+      "type": "allianceresource",
+      "name": "",
+      "power": "",
+      "trap": "F",
+      "x": 70,
+      "y": 9
+    }
+  ]
+}

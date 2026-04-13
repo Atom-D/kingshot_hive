@@ -36,6 +36,29 @@
 
         <input type="hidden" id="castleTrap" value="F">
 
+        <label>Rank</label>
+
+        <div class="rank-select">
+            <button type="button" onclick="setRank('R1', this)">R1</button>
+            <button type="button" onclick="setRank('R2', this)">R2</button>
+            <button type="button" onclick="setRank('R3', this)" class="active">R3</button>
+            <button type="button" onclick="setRank('R4', this)">R4</button>
+            <button type="button" onclick="setRank('R5', this)">R5</button>
+        </div>
+
+        <input type="hidden" id="castleRank" value="R1">
+
+        <div id="castleCoords">
+            <label>
+                X
+                <input type="number" id="castleCoordX" value="0">
+            </label>
+            <label>
+                Y
+                <input type="number" id="castleCoordY" value="0">
+            </label>
+        </div>
+
         <div class="dialog-buttons">
             <button id="castleAddBtn" value="ok">Add</button>
             <button type="button" id="castleCancelBtn">Cancel</button>
@@ -56,6 +79,87 @@
 
 </dialog>
 
+<dialog id="posDialog">
+
+    <h3 id="posDialogTitle">Edit position</h3>
+
+    <label>
+        X
+        <input type="number" id="posX" value="0">
+    </label>
+
+    <label>
+        Y
+        <input type="number" id="posY" value="0">
+    </label>
+
+    <div class="dialog-buttons">
+        <button onclick="savePosDialog()">Save</button>
+        <button id="posCancelBtn">Cancel</button>
+    </div>
+
+</dialog>
+
+<dialog id="originDialog">
+
+    <h3>Map settings</h3>
+
+    <label>
+        Origin X
+        <input type="number" id="originX" value="0">
+    </label>
+
+    <label>
+        Origin Y
+        <input type="number" id="originY" value="0">
+    </label>
+
+    <label>
+        Width (tiles)
+        <input type="number" id="mapWidth" value="40" min="1">
+    </label>
+
+    <label>
+        Height (tiles)
+        <input type="number" id="mapHeight" value="25" min="1">
+    </label>
+
+    <div class="dialog-buttons">
+        <button onclick="saveMapSettings()">Save</button>
+        <button id="originCancelBtn">Cancel</button>
+    </div>
+
+</dialog>
+
+<dialog id="bulkEditDialog">
+
+    <h3>Bulk edit powers</h3>
+
+    <div class="bulk-rank-filter" id="bulkRankFilter">
+        <button class="rank-filter-btn active" onclick="setBulkRankFilter('All', this)">All</button>
+        <button class="rank-filter-btn" onclick="setBulkRankFilter('R5', this)">R5</button>
+        <button class="rank-filter-btn" onclick="setBulkRankFilter('R4', this)">R4</button>
+        <button class="rank-filter-btn" onclick="setBulkRankFilter('R3', this)">R3</button>
+        <button class="rank-filter-btn" onclick="setBulkRankFilter('R2', this)">R2</button>
+        <button class="rank-filter-btn" onclick="setBulkRankFilter('R1', this)">R1</button>
+    </div>
+
+    <div class="bulk-table-wrap">
+        <table class="bulk-table" id="bulkTable">
+            <thead>
+                <tr><th>Rank</th><th>Player</th><th>Power</th></tr>
+            </thead>
+            <tbody id="bulkTableBody"></tbody>
+        </table>
+    </div>
+
+    <div class="dialog-buttons">
+        <button onclick="applyBulkEdit()">Apply</button>
+        <button type="button" id="bulkCancelBtn">Cancel</button>
+    </div>
+
+</dialog>
+
 <h2>Kingshot Bear Trap Layout</h2>
 
 <div class="layout">
@@ -64,6 +168,16 @@
 
         <div class="player-header">
             <button onclick="exportPlayerList()">Export player list</button>
+            <button onclick="openBulkEdit()">Bulk edit</button>
+        </div>
+
+        <div class="rank-filter" id="rankFilter">
+            <button class="rank-filter-btn active" onclick="setRankFilter('All', this)">All</button>
+            <button class="rank-filter-btn" onclick="setRankFilter('R5', this)">R5</button>
+            <button class="rank-filter-btn" onclick="setRankFilter('R4', this)">R4</button>
+            <button class="rank-filter-btn" onclick="setRankFilter('R3', this)">R3</button>
+            <button class="rank-filter-btn" onclick="setRankFilter('R2', this)">R2</button>
+            <button class="rank-filter-btn" onclick="setRankFilter('R1', this)">R1</button>
         </div>
 
         <div id="playerList"></div>
@@ -75,14 +189,23 @@
         <div class="toolbar-container">
 
             <div class="toolbar-group">
-                <button onclick="addCastle()">Add castle</button>
-                <button onclick="addBanner()">Add banner</button>
-                <button onclick="addPlainsHQ()">Add Plains HQ</button>
+                <div class="add-dropdown">
+                    <button onclick="toggleAddMenu()">Add &#9660;</button>
+                    <div id="addDropdownMenu" class="add-dropdown-menu">
+                        <div class="add-dropdown-item" onclick="addCastle();toggleAddMenu()">Castle</div>
+                        <div class="add-dropdown-item" onclick="addBanner();toggleAddMenu()">Banner</div>
+                        <div class="add-dropdown-item" onclick="addPlainsHQ();toggleAddMenu()">Plains HQ</div>
+                        <div class="add-dropdown-item" onclick="addAllianceResource();toggleAddMenu()">Alliance Resource</div>
+                        <div class="add-dropdown-item" onclick="addWater();toggleAddMenu()">Water</div>
+                        <div class="add-dropdown-item" onclick="addMountain();toggleAddMenu()">Mountain</div>
+                    </div>
+                </div>
             </div>
 
             <div class="toolbar-group">
                 <button onclick="saveLayout()">Save layout</button>
                 <button onclick="loadLayout()">Load layout</button>
+                <button onclick="clearLayout()">Clear layout</button>
                 <button onclick="exportLayout()">Export layout</button>
                 <input type="file" id="importFile">
                 <button onclick="importLayout(document.getElementById('importFile').files[0])">
@@ -98,15 +221,41 @@
                 <button class="zoom-btn" onclick="setZoom(2,this)">200%</button>
             </div>
 
+            <div class="toolbar-group">
+                <button onclick="openOriginDialog()">Map settings</button>
+                <span id="originLabel" class="origin-label">Origin: (0, 0)</span>
+            </div>
+
         </div>
 
-        <div id="map">
-            <div id="trap1" class="trap">Trap 1</div>
-            <div id="trap2" class="trap">Trap 2</div>
+        <div class="map-wrapper">
+            <div class="axis-corner"></div>
+            <div class="axis-x" id="axisX"></div>
+            <div class="axis-y" id="axisY"></div>
+            <div id="map">
+                <canvas id="territoryCanvas"></canvas>
+                <div id="trap1" class="trap">Trap 1</div>
+                <div id="trap2" class="trap">Trap 2</div>
+            </div>
         </div>
 
     </div>
 
+</div>
+
+<div id="tileContextMenu" class="context-menu">
+    <div class="context-menu-item" onclick="contextMenuAdd('castle')">Add castle</div>
+    <div class="context-menu-item" onclick="contextMenuAdd('banner')">Add banner</div>
+    <div class="context-menu-item" onclick="contextMenuAdd('trap')">Add trap</div>
+    <div class="context-menu-item" onclick="contextMenuAdd('plainshq')">Add Plains HQ</div>
+    <div class="context-menu-item" onclick="contextMenuAdd('allianceresource')">Add Alliance Resource</div>
+    <div class="context-menu-item" onclick="contextMenuAdd('water')">Add Water</div>
+    <div class="context-menu-item" onclick="contextMenuAdd('mountain')">Add Mountain</div>
+</div>
+
+<div id="objectContextMenu" class="context-menu">
+    <div class="context-menu-item" onclick="objectContextEdit()">Edit</div>
+    <div class="context-menu-item" onclick="objectContextDelete()">Delete</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
